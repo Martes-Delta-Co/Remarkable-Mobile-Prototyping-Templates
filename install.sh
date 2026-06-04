@@ -3,7 +3,7 @@
 # copies them to a USB-connected reMarkable. See README / INSTALL guides first.
 #   bash install.sh        (or: REPO=you/repo bash install.sh)
 set -euo pipefail
-REPO="${REPO:-YOURNAME/remarkable-mobile-ux-templates}"   # <-- CHANGE to your repo
+REPO="${REPO:-Martes-Delta-Co/Remarkable-Mobile-Prototyping-Templates}"   # <-- CHANGE to your repo
 BRANCH="${BRANCH:-main}"
 IP="${IP:-10.11.99.1}"
 DEST="/home/root/.local/share/remarkable/xochitl/"

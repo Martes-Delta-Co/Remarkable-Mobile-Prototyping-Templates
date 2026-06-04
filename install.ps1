@@ -2,7 +2,7 @@
 # copies them to a USB-connected reMarkable. See README / INSTALL guides first.
 #   powershell -ExecutionPolicy Bypass -File install.ps1
 $ErrorActionPreference = "Stop"
-$Repo   = if ($env:REPO)   { $env:REPO }   else { "YOURNAME/remarkable-mobile-ux-templates" }  # <-- CHANGE
+$Repo   = if ($env:REPO)   { $env:REPO }   else { "Martes-Delta-Co/Remarkable-Mobile-Prototyping-Templates" }  # <-- CHANGE
 $Branch = if ($env:BRANCH) { $env:BRANCH } else { "main" }
 $IP     = if ($env:IP)     { $env:IP }     else { "10.11.99.1" }
 $Dest   = "/home/root/.local/share/remarkable/xochitl/"
