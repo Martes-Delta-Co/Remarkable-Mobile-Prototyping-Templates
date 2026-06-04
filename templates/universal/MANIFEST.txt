@@ -1,0 +1,36 @@
+1UP COL Android             uxtpl_android_one_col
+1UP COL GRD Android         uxtpl_android_one_colgrid
+1UP COL GRD iPhone          uxtpl_iphone_one_colgrid
+1UP COL iPhone              uxtpl_iphone_one_col
+1UP GRD Android             uxtpl_android_one_grid
+1UP GRD iPhone              uxtpl_iphone_one_grid
+1UP LS COL Android          uxtpl_android_one_land_col
+1UP LS COL GRD Android      uxtpl_android_one_land_colgrid
+1UP LS COL GRD iPhone       uxtpl_iphone_one_land_colgrid
+1UP LS COL iPhone           uxtpl_iphone_one_land_col
+1UP LS GRD Android          uxtpl_android_one_land_grid
+1UP LS GRD iPhone           uxtpl_iphone_one_land_grid
+1UP WIDE COL Android        uxtpl_android_one_land2_col
+1UP WIDE COL GRD Android    uxtpl_android_one_land2_colgrid
+1UP WIDE COL GRD iPhone     uxtpl_iphone_one_land2_colgrid
+1UP WIDE COL iPhone         uxtpl_iphone_one_land2_col
+1UP WIDE GRD Android        uxtpl_android_one_land2_grid
+1UP WIDE GRD iPhone         uxtpl_iphone_one_land2_grid
+2UP COL Android             uxtpl_android_two_col
+2UP COL GRD Android         uxtpl_android_two_colgrid
+2UP COL GRD iPhone          uxtpl_iphone_two_colgrid
+2UP COL iPhone              uxtpl_iphone_two_col
+2UP GRD Android             uxtpl_android_two_grid
+2UP GRD iPhone              uxtpl_iphone_two_grid
+4UP COL Android             uxtpl_android_four_col
+4UP COL GRD Android         uxtpl_android_four_colgrid
+4UP COL GRD iPhone          uxtpl_iphone_four_colgrid
+4UP COL iPhone              uxtpl_iphone_four_col
+4UP GRD Android             uxtpl_android_four_grid
+4UP GRD iPhone              uxtpl_iphone_four_grid
+4UP LS COL Android          uxtpl_android_four_land_col
+4UP LS COL GRD Android      uxtpl_android_four_land_colgrid
+4UP LS COL GRD iPhone       uxtpl_iphone_four_land_colgrid
+4UP LS COL iPhone           uxtpl_iphone_four_land_col
+4UP LS GRD Android          uxtpl_android_four_land_grid
+4UP LS GRD iPhone           uxtpl_iphone_four_land_grid

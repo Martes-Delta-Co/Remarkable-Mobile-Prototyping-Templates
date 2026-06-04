@@ -1,0 +1,10 @@
+UX SKETCHING TEMPLATES - UNIVERSAL (works on reMarkable 2 AND Paper Pro)
+Files namespaced 'uxtpl_'. supportedScreens = ["rm2","rmPP"].
+Requires reMarkable software 3.17 or newer (Methods template format).
+
+INSTALL (same on both devices):
+1. Remove any previous set first:
+     rm -rf /home/root/.local/share/remarkable/xochitl/uxtpl_*
+2. Copy ALL uxtpl_* files into /home/root/.local/share/remarkable/xochitl/
+3. systemctl restart xochitl   (or reboot)
+DELETE LATER:  rm -rf /home/root/.local/share/remarkable/xochitl/uxtpl_* ; systemctl restart xochitl

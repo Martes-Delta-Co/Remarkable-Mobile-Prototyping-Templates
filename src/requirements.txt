@@ -1,0 +1,5 @@
+# Generating the templates needs only the Python standard library.
+# These are only for the optional preview/PNG/PDF rendering scripts:
+cairosvg>=2.7
+pillow>=10.0
+pypdf>=4.0
