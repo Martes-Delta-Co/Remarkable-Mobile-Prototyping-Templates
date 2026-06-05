@@ -7,6 +7,14 @@ Confirmed capabilities (probed on-device):
   - a path with two subpaths leaves an even-odd hole  -> screen cutout
   - curve commands (C/A) BREAK rendering -> rounded corners via straight segments
 No on-canvas text. Page = rmPP 2160 x 2880, absolute pixel coordinates.
+
+Per-device coordinate rotation:
+  The rM2 interprets the Methods template canvas rotated 90 deg vs the Paper Pro,
+  so an unrotated portrait design renders sideways on an rM2. When ROTATE_90 is
+  set we pre-rotate every emitted path coordinate 90 deg CW -- (x, y) -> (y, 2160-x)
+  -- and leave the sx/sy constants untouched. The transform is orthonormal, so the
+  uniform ~0.65x scale is preserved (art fills the page instead of distorting) and
+  the device's own canvas rotation brings it back upright.
 """
 import json, time, os, math, glob, zipfile
 import gen_templates as g   # reuse device specs + layout math
@@ -16,6 +24,7 @@ PAGE_W, PAGE_H = g.PAGE_W, g.PAGE_H
 
 # grayscale palette (tune on device)
 SUPPORTED_SCREENS = ["rmPP"]   # which devices the templates appear on
+ROTATE_90 = False              # pre-rotate coords 90 deg CW for the rM2 (see module docstring)
 BLACK   = "#000000"
 COL     = "#DCDCDC"   # 12-column shading
 UNSAFE  = "#ECECEC"   # unsafe-area tint
@@ -56,7 +65,13 @@ def xfpts(pts, s, tx, ty, rot):
 def xexpr(v): return f"{round(v)} * sx"
 def yexpr(v): return f"{round(v)} * sy"
 
+def rot90(x, y):
+    # 90 deg CW about the design-space origin: (x, y) -> (y, PAGE_W - x).
+    # Constants stay sx=tW/2160, sy=tH/2880, so the uniform scale is preserved.
+    return (y, PAGE_W - x) if ROTATE_90 else (x, y)
+
 def data_from(pts):
+    pts = [rot90(px, py) for (px, py) in pts]
     d = ["M", xexpr(pts[0][0]), yexpr(pts[0][1])]
     for px, py in pts[1:]:
         d += ["L", xexpr(px), yexpr(py)]
@@ -75,6 +90,7 @@ def ring_item(outer, inner, color):
             "data": data_from(outer) + data_from(inner)}
 
 def stroke_line(p1, p2, width):
+    p1 = rot90(*p1); p2 = rot90(*p2)
     return {"id": nid(), "type": "path", "strokeWidth": width,
             "data": ["M", xexpr(p1[0]), yexpr(p1[1]), "L", xexpr(p2[0]), yexpr(p2[1])]}
 
@@ -176,6 +192,8 @@ def build_items(spec, layout, variant):
             items += device_items(spec, s, tx, ty, rot, variant, local_overlays=False)
         else:
             items += device_items(spec, s, tx, ty, rot, variant, local_overlays=True)
+    # page-title write-in rule (top-left)
+    items.append(stroke_line((g.M, g.TITLE_Y), (g.M + g.TITLE_W, g.TITLE_Y), NOTE_STROKE))
     items += note_items(note)
     return items
 

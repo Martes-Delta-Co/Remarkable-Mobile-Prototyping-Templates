@@ -40,6 +40,18 @@ the page).
 ```
 then emit each x as `"<v> * sx"`, each y as `"<v> * sy"`. Fits exactly on any device.
 
+## Coordinates — the rM2 rotation gotcha
+The **rM2 interprets the template canvas rotated 90° vs the Paper Pro** (confirmed on rM2
+firmware 3.25). The same `items` JSON that's upright on a Paper Pro renders sideways on an rM2
+(clean 90° rotation, scale stays uniform — not squished). Because `items` is static JSON it
+can't branch on device, so ship **two coordinate sets** and let `supportedScreens` route each.
+**rM2 fix:** pre-rotate every path coordinate 90° CW — map each `(x, y)` in the 2160×2880
+design space to `(y, 2160 − x)` — and leave the `sx`/`sy` constants untouched. Keeping the
+constants is the key: the transform is orthonormal, so the uniform ~0.65× scale is preserved
+(art fills the page instead of distorting) and the device's own canvas rotation brings it
+upright. (`iconData` is a separate preview image — leave it unrotated.) See `ROTATE_90` in
+`src/gen_methods.py`.
+
 ## items — drawing instructions (each needs a unique `id`)
 - `path`: `{"data": ["M",x,y,"L",x,y,...,"Z"], "strokeWidth": n }` and/or
   `{"fillColor": "#RRGGBB"}`. Numbers may be literals or expression strings.

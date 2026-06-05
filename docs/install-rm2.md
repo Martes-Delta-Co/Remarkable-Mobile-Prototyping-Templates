@@ -24,7 +24,9 @@ If your rM2 is on an older version and you can't update, these particular files 
 - The template files, **unzipped** into a folder on your computer (e.g. `uxtpl` in Downloads).
   They're named `uxtpl_..._.content`, `..._.metadata`, `..._.template`. Unzip the archive —
   don't copy the `.zip` itself.
-- Use the **universal** template set (it's tagged to work on both the rM2 and the Paper Pro).
+- Use the **universal** template set and copy **all** the `uxtpl_*` files. It contains coordinate
+  variants for both tablets (the rM2 needs a 90°-rotated copy because it interprets the template
+  canvas rotated vs the Paper Pro); your rM2 automatically shows only the ones meant for it.
 
 We'll connect over the **USB cable** — simplest and most reliable.
 

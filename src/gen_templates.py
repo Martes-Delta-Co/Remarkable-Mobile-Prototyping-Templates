@@ -12,6 +12,13 @@ import os, math
 PAGE_W, PAGE_H = 2160, 2880
 M = 130  # outer page margin
 
+# Page-title write-in rule: a blank underline near the top-left to hand-write a page title.
+# HEADER reserves a top band for it; device boxes + notes shift down by HEADER so nothing
+# overlaps (the bottom note area absorbs the space).
+HEADER  = 120   # top band reserved for the title rule
+TITLE_Y = 196   # baseline (y) of the title underline
+TITLE_W = 1150  # underline length (~30 handwritten chars)
+
 # ---- SVG styling (used by the SVG proxy renderer / preview) ----
 C_BLACK = "#000000"; PAPER = "#ffffff"
 UNSAFE = "#000000"; UNSAFE_OP = 0.07
@@ -169,6 +176,10 @@ def layout_boxes(layout):
         note = dict(x=M, y=ny, w=cw, h=PAGE_H-ny-90, vertical=True)
     else:
         raise ValueError(layout)
+    # Shift everything down by HEADER to clear the top title band; the bottom note
+    # area absorbs the space (device sizes unchanged).
+    dev = [(bx, by + HEADER, bw, bh, o) for (bx, by, bw, bh, o) in dev]
+    note = dict(note, y=note["y"] + HEADER, h=note["h"] - HEADER)
     return dev, note
 
 def build_page(device_spec, layout, variant):
@@ -184,6 +195,8 @@ def build_page(device_spec, layout, variant):
         parts.append(draw_device(device_spec, s, tx, ty, rot, variant, local_overlays=not page_grid))
         if page_grid:
             parts.append(overlays_page_space(device_spec, s, tx, ty, rot, variant))
+    parts.append(f'<g stroke="{NOTE_COL}" stroke-opacity="{NOTE_OP}" stroke-width="{W_NOTE}">'
+                 + line(M, TITLE_Y, M + TITLE_W, TITLE_Y) + '</g>')
     parts.append(note_lines(note["x"], note["y"], note["w"], note["h"], vertical=note["vertical"]))
     parts.append("</svg>"); return "".join(parts)
 

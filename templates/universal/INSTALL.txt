@@ -1,5 +1,8 @@
 UX SKETCHING TEMPLATES - UNIVERSAL (works on reMarkable 2 AND Paper Pro)
-Files namespaced 'uxtpl_'. supportedScreens = ["rm2","rmPP"].
+Files namespaced 'uxtpl_'. Two coordinate sets in one dir; copy them all and each
+device shows only its own (via supportedScreens):
+  uxtpl_*       -> Paper Pro  (supportedScreens ["rmPP"])
+  uxtpl_*_rm2   -> reMarkable 2, coords rotated 90 deg (supportedScreens ["rm2"])
 Requires reMarkable software 3.17 or newer (Methods template format).
 
 INSTALL (same on both devices):

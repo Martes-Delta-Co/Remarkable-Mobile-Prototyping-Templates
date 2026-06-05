@@ -1,0 +1,1414 @@
+{
+  "name": "1UP LS GRD iPhone",
+  "author": "Thomas",
+  "templateVersion": "1.0.0",
+  "formatVersion": 1,
+  "iconData": "PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNTAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMTUwIDIwMCI+PHJlY3Qgd2lkdGg9IjE1MCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNmZmZmZmYiLz48cmVjdCB4PSI0Ni41IiB5PSI0Ni41IiB3aWR0aD0iNTcuMCIgaGVpZ2h0PSIyNy4wIiByeD0iNC4zIiBmaWxsPSIjMWExYTFhIi8+PHJlY3QgeD0iNDguNCIgeT0iNDguNCIgd2lkdGg9IjUzLjIiIGhlaWdodD0iMjMuMiIgcng9IjIuNCIgZmlsbD0iI2ZmZiIvPjxyZWN0IHg9IjQ5LjUiIHk9IjU1LjgiIHdpZHRoPSIxLjgiIGhlaWdodD0iOC40IiByeD0iMC45IiBmaWxsPSIjMWExYTFhIi8+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTYuOCwxMzMuNikgc2NhbGUoMS43KSIgZmlsbD0iIzFhMWExYSI+PHBhdGggZD0iTTE4LjcxIDE5LjVjLS44MyAxLjI0LTEuNzEgMi40NS0zLjA1IDIuNDctMS4zNC4wMy0xLjc3LS43OS0zLjI5LS43OS0xLjUzIDAtMiAuNzctMy4yNy44Mi0xLjMxLjA1LTIuMy0xLjMyLTMuMTQtMi41M0M0LjI1IDE3IDIuOTQgMTIuNDUgNC43IDkuMzljLjg3LTEuNTIgMi40My0yLjQ4IDQuMTItMi41MSAxLjI4LS4wMiAyLjUuODcgMy4yOS44Ny43OCAwIDIuMjYtMS4wNyAzLjgxLS45MS42NS4wMyAyLjQ3LjI2IDMuNjQgMS45OC0uMDkuMDYtMi4xNyAxLjI4LTIuMTUgMy44MS4wMyAzLjAyIDIuNjUgNC4wMyAyLjY4IDQuMDQtLjAzLjA3LS40MiAxLjQ0LTEuMzggMi44M00xMyAzLjVjLjczLS44MyAxLjk0LTEuNDYgMi45NC0xLjUuMTMgMS4xNy0uMzQgMi4zNS0xLjA0IDMuMTktLjY5Ljg1LTEuODMgMS41MS0yLjk1IDEuNDItLjE1LTEuMTUuNDEtMi4zNSAxLjA1LTMuMTF6Ii8+PC9nPjxyZWN0IHg9IjgwIiB5PSIxMjgiIHdpZHRoPSI2MCIgaGVpZ2h0PSI1MiIgcng9IjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2M4YzhjOCIgc3Ryb2tlLXdpZHRoPSIxLjQiLz48bGluZSB4MT0iOTQuNyIgeTE9IjEzNS4wIiB4Mj0iOTQuNyIgeTI9IjE3My4wIiBzdHJva2U9IiM5YTlhOWEiIHN0cm9rZS13aWR0aD0iMS4yIi8+PGxpbmUgeDE9IjEwMi4zIiB5MT0iMTM1LjAiIHgyPSIxMDIuMyIgeTI9IjE3My4wIiBzdHJva2U9IiM5YTlhOWEiIHN0cm9rZS13aWR0aD0iMS4yIi8+PGxpbmUgeDE9IjExMC4wIiB5MT0iMTM1LjAiIHgyPSIxMTAuMCIgeTI9IjE3My4wIiBzdHJva2U9IiM5YTlhOWEiIHN0cm9rZS13aWR0aD0iMS4yIi8+PGxpbmUgeDE9IjExNy43IiB5MT0iMTM1LjAiIHgyPSIxMTcuNyIgeTI9IjE3My4wIiBzdHJva2U9IiM5YTlhOWEiIHN0cm9rZS13aWR0aD0iMS4yIi8+PGxpbmUgeDE9IjEyNS4zIiB5MT0iMTM1LjAiIHgyPSIxMjUuMyIgeTI9IjE3My4wIiBzdHJva2U9IiM5YTlhOWEiIHN0cm9rZS13aWR0aD0iMS4yIi8+PGxpbmUgeDE9Ijg3LjAiIHkxPSIxNDQuNSIgeDI9IjEzMy4wIiB5Mj0iMTQ0LjUiIHN0cm9rZT0iIzlhOWE5YSIgc3Ryb2tlLXdpZHRoPSIxLjIiLz48bGluZSB4MT0iODcuMCIgeTE9IjE1NC4wIiB4Mj0iMTMzLjAiIHkyPSIxNTQuMCIgc3Ryb2tlPSIjOWE5YTlhIiBzdHJva2Utd2lkdGg9IjEuMiIvPjxsaW5lIHgxPSI4Ny4wIiB5MT0iMTYzLjUiIHgyPSIxMzMuMCIgeTI9IjE2My41IiBzdHJva2U9IiM5YTlhOWEiIHN0cm9rZS13aWR0aD0iMS4yIi8+PC9zdmc+",
+  "categories": [
+    "UX Templates",
+    "Mobile Templates",
+    "iPhone"
+  ],
+  "labels": [
+    "iPhone",
+    "one_land",
+    "grid"
+  ],
+  "orientation": "portrait",
+  "supportedScreens": [
+    "rm2"
+  ],
+  "constants": [
+    {
+      "sx": "templateWidth / 2160"
+    },
+    {
+      "sy": "templateHeight / 2880"
+    }
+  ],
+  "items": [
+    {
+      "id": "i1",
+      "type": "path",
+      "strokeWidth": 1.2,
+      "data": [
+        "M",
+        "353 * sx",
+        "291 * sy",
+        "L",
+        "353 * sx",
+        "1923 * sy"
+      ]
+    },
+    {
+      "id": "i2",
+      "type": "path",
+      "strokeWidth": 1.2,
+      "data": [
+        "M",
+        "423 * sx",
+        "291 * sy",
+        "L",
+        "423 * sx",
+        "1923 * sy"
+      ]
+    },
+    {
+      "id": "i3",
+      "type": "path",
+      "strokeWidth": 1.2,
+      "data": [
+        "M",
+        "493 * sx",
+        "291 * sy",
+        "L",
+        "493 * sx",
+        "1923 * sy"
+      ]
+    },
+    {
+      "id": "i4",
+      "type": "path",
+      "strokeWidth": 1.2,
+      "data": [
+        "M",
+        "564 * sx",
+        "291 * sy",
+        "L",
+        "564 * sx",
+        "1923 * sy"
+      ]
+    },
+    {
+      "id": "i5",
+      "type": "path",
+      "strokeWidth": 1.2,
+      "data": [
+        "M",
+        "634 * sx",
+        "291 * sy",
+        "L",
+        "634 * sx",
+        "1923 * sy"
+      ]
+    },
+    {
+      "id": "i6",
+      "type": "path",
+      "strokeWidth": 1.2,
+      "data": [
+        "M",
+        "705 * sx",
+        "291 * sy",
+        "L",
+        "705 * sx",
+        "1923 * sy"
+      ]
+    },
+    {
+      "id": "i7",
+      "type": "path",
+      "strokeWidth": 1.2,
+      "data": [
+        "M",
+        "775 * sx",
+        "291 * sy",
+        "L",
+        "775 * sx",
+        "1923 * sy"
+      ]
+    },
+    {
+      "id": "i8",
+      "type": "path",
+      "strokeWidth": 1.2,
+      "data": [
+        "M",
+        "845 * sx",
+        "291 * sy",
+        "L",
+        "845 * sx",
+        "1923 * sy"
+      ]
+    },
+    {
+      "id": "i9",
+      "type": "path",
+      "strokeWidth": 1.2,
+      "data": [
+        "M",
+        "916 * sx",
+        "291 * sy",
+        "L",
+        "916 * sx",
+        "1923 * sy"
+      ]
+    },
+    {
+      "id": "i10",
+      "type": "path",
+      "strokeWidth": 1.2,
+      "data": [
+        "M",
+        "986 * sx",
+        "291 * sy",
+        "L",
+        "986 * sx",
+        "1923 * sy"
+      ]
+    },
+    {
+      "id": "i11",
+      "type": "path",
+      "strokeWidth": 1.2,
+      "data": [
+        "M",
+        "1057 * sx",
+        "291 * sy",
+        "L",
+        "1057 * sx",
+        "1923 * sy"
+      ]
+    },
+    {
+      "id": "i12",
+      "type": "path",
+      "strokeWidth": 1.2,
+      "data": [
+        "M",
+        "1127 * sx",
+        "291 * sy",
+        "L",
+        "1127 * sx",
+        "1923 * sy"
+      ]
+    },
+    {
+      "id": "i13",
+      "type": "path",
+      "strokeWidth": 1.2,
+      "data": [
+        "M",
+        "1197 * sx",
+        "291 * sy",
+        "L",
+        "1197 * sx",
+        "1923 * sy"
+      ]
+    },
+    {
+      "id": "i14",
+      "type": "path",
+      "strokeWidth": 1.2,
+      "data": [
+        "M",
+        "353 * sx",
+        "291 * sy",
+        "L",
+        "1197 * sx",
+        "291 * sy"
+      ]
+    },
+    {
+      "id": "i15",
+      "type": "path",
+      "strokeWidth": 1.2,
+      "data": [
+        "M",
+        "353 * sx",
+        "362 * sy",
+        "L",
+        "1197 * sx",
+        "362 * sy"
+      ]
+    },
+    {
+      "id": "i16",
+      "type": "path",
+      "strokeWidth": 1.2,
+      "data": [
+        "M",
+        "353 * sx",
+        "432 * sy",
+        "L",
+        "1197 * sx",
+        "432 * sy"
+      ]
+    },
+    {
+      "id": "i17",
+      "type": "path",
+      "strokeWidth": 1.2,
+      "data": [
+        "M",
+        "353 * sx",
+        "502 * sy",
+        "L",
+        "1197 * sx",
+        "502 * sy"
+      ]
+    },
+    {
+      "id": "i18",
+      "type": "path",
+      "strokeWidth": 1.2,
+      "data": [
+        "M",
+        "353 * sx",
+        "573 * sy",
+        "L",
+        "1197 * sx",
+        "573 * sy"
+      ]
+    },
+    {
+      "id": "i19",
+      "type": "path",
+      "strokeWidth": 1.2,
+      "data": [
+        "M",
+        "353 * sx",
+        "643 * sy",
+        "L",
+        "1197 * sx",
+        "643 * sy"
+      ]
+    },
+    {
+      "id": "i20",
+      "type": "path",
+      "strokeWidth": 1.2,
+      "data": [
+        "M",
+        "353 * sx",
+        "714 * sy",
+        "L",
+        "1197 * sx",
+        "714 * sy"
+      ]
+    },
+    {
+      "id": "i21",
+      "type": "path",
+      "strokeWidth": 1.2,
+      "data": [
+        "M",
+        "353 * sx",
+        "784 * sy",
+        "L",
+        "1197 * sx",
+        "784 * sy"
+      ]
+    },
+    {
+      "id": "i22",
+      "type": "path",
+      "strokeWidth": 1.2,
+      "data": [
+        "M",
+        "353 * sx",
+        "854 * sy",
+        "L",
+        "1197 * sx",
+        "854 * sy"
+      ]
+    },
+    {
+      "id": "i23",
+      "type": "path",
+      "strokeWidth": 1.2,
+      "data": [
+        "M",
+        "353 * sx",
+        "925 * sy",
+        "L",
+        "1197 * sx",
+        "925 * sy"
+      ]
+    },
+    {
+      "id": "i24",
+      "type": "path",
+      "strokeWidth": 1.2,
+      "data": [
+        "M",
+        "353 * sx",
+        "995 * sy",
+        "L",
+        "1197 * sx",
+        "995 * sy"
+      ]
+    },
+    {
+      "id": "i25",
+      "type": "path",
+      "strokeWidth": 1.2,
+      "data": [
+        "M",
+        "353 * sx",
+        "1065 * sy",
+        "L",
+        "1197 * sx",
+        "1065 * sy"
+      ]
+    },
+    {
+      "id": "i26",
+      "type": "path",
+      "strokeWidth": 1.2,
+      "data": [
+        "M",
+        "353 * sx",
+        "1136 * sy",
+        "L",
+        "1197 * sx",
+        "1136 * sy"
+      ]
+    },
+    {
+      "id": "i27",
+      "type": "path",
+      "strokeWidth": 1.2,
+      "data": [
+        "M",
+        "353 * sx",
+        "1206 * sy",
+        "L",
+        "1197 * sx",
+        "1206 * sy"
+      ]
+    },
+    {
+      "id": "i28",
+      "type": "path",
+      "strokeWidth": 1.2,
+      "data": [
+        "M",
+        "353 * sx",
+        "1277 * sy",
+        "L",
+        "1197 * sx",
+        "1277 * sy"
+      ]
+    },
+    {
+      "id": "i29",
+      "type": "path",
+      "strokeWidth": 1.2,
+      "data": [
+        "M",
+        "353 * sx",
+        "1347 * sy",
+        "L",
+        "1197 * sx",
+        "1347 * sy"
+      ]
+    },
+    {
+      "id": "i30",
+      "type": "path",
+      "strokeWidth": 1.2,
+      "data": [
+        "M",
+        "353 * sx",
+        "1417 * sy",
+        "L",
+        "1197 * sx",
+        "1417 * sy"
+      ]
+    },
+    {
+      "id": "i31",
+      "type": "path",
+      "strokeWidth": 1.2,
+      "data": [
+        "M",
+        "353 * sx",
+        "1488 * sy",
+        "L",
+        "1197 * sx",
+        "1488 * sy"
+      ]
+    },
+    {
+      "id": "i32",
+      "type": "path",
+      "strokeWidth": 1.2,
+      "data": [
+        "M",
+        "353 * sx",
+        "1558 * sy",
+        "L",
+        "1197 * sx",
+        "1558 * sy"
+      ]
+    },
+    {
+      "id": "i33",
+      "type": "path",
+      "strokeWidth": 1.2,
+      "data": [
+        "M",
+        "353 * sx",
+        "1629 * sy",
+        "L",
+        "1197 * sx",
+        "1629 * sy"
+      ]
+    },
+    {
+      "id": "i34",
+      "type": "path",
+      "strokeWidth": 1.2,
+      "data": [
+        "M",
+        "353 * sx",
+        "1699 * sy",
+        "L",
+        "1197 * sx",
+        "1699 * sy"
+      ]
+    },
+    {
+      "id": "i35",
+      "type": "path",
+      "strokeWidth": 1.2,
+      "data": [
+        "M",
+        "353 * sx",
+        "1769 * sy",
+        "L",
+        "1197 * sx",
+        "1769 * sy"
+      ]
+    },
+    {
+      "id": "i36",
+      "type": "path",
+      "strokeWidth": 1.2,
+      "data": [
+        "M",
+        "353 * sx",
+        "1840 * sy",
+        "L",
+        "1197 * sx",
+        "1840 * sy"
+      ]
+    },
+    {
+      "id": "i37",
+      "type": "path",
+      "strokeWidth": 1.2,
+      "data": [
+        "M",
+        "353 * sx",
+        "1910 * sy",
+        "L",
+        "1197 * sx",
+        "1910 * sy"
+      ]
+    },
+    {
+      "id": "i38",
+      "type": "path",
+      "fillColor": "#ECECEC",
+      "data": [
+        "M",
+        "353 * sx",
+        "164 * sy",
+        "L",
+        "1197 * sx",
+        "164 * sy",
+        "L",
+        "1197 * sx",
+        "291 * sy",
+        "L",
+        "353 * sx",
+        "291 * sy",
+        "Z"
+      ]
+    },
+    {
+      "id": "i39",
+      "type": "path",
+      "fillColor": "#ECECEC",
+      "data": [
+        "M",
+        "353 * sx",
+        "1923 * sy",
+        "L",
+        "1197 * sx",
+        "1923 * sy",
+        "L",
+        "1197 * sx",
+        "1996 * sy",
+        "L",
+        "353 * sx",
+        "1996 * sy",
+        "Z"
+      ]
+    },
+    {
+      "id": "i40",
+      "type": "path",
+      "fillColor": "#000000",
+      "data": [
+        "M",
+        "1073 * sx",
+        "134 * sy",
+        "L",
+        "1103 * sx",
+        "137 * sy",
+        "L",
+        "1132 * sx",
+        "146 * sy",
+        "L",
+        "1159 * sx",
+        "160 * sy",
+        "L",
+        "1182 * sx",
+        "180 * sy",
+        "L",
+        "1201 * sx",
+        "203 * sy",
+        "L",
+        "1216 * sx",
+        "230 * sy",
+        "L",
+        "1224 * sx",
+        "259 * sy",
+        "L",
+        "1227 * sx",
+        "289 * sy",
+        "L",
+        "1227 * sx",
+        "1871 * sy",
+        "L",
+        "1224 * sx",
+        "1901 * sy",
+        "L",
+        "1216 * sx",
+        "1930 * sy",
+        "L",
+        "1201 * sx",
+        "1957 * sy",
+        "L",
+        "1182 * sx",
+        "1980 * sy",
+        "L",
+        "1159 * sx",
+        "2000 * sy",
+        "L",
+        "1132 * sx",
+        "2014 * sy",
+        "L",
+        "1103 * sx",
+        "2023 * sy",
+        "L",
+        "1073 * sx",
+        "2026 * sy",
+        "L",
+        "477 * sx",
+        "2026 * sy",
+        "L",
+        "447 * sx",
+        "2023 * sy",
+        "L",
+        "418 * sx",
+        "2014 * sy",
+        "L",
+        "391 * sx",
+        "2000 * sy",
+        "L",
+        "368 * sx",
+        "1980 * sy",
+        "L",
+        "349 * sx",
+        "1957 * sy",
+        "L",
+        "334 * sx",
+        "1930 * sy",
+        "L",
+        "326 * sx",
+        "1901 * sy",
+        "L",
+        "323 * sx",
+        "1871 * sy",
+        "L",
+        "323 * sx",
+        "289 * sy",
+        "L",
+        "326 * sx",
+        "259 * sy",
+        "L",
+        "334 * sx",
+        "230 * sy",
+        "L",
+        "349 * sx",
+        "203 * sy",
+        "L",
+        "368 * sx",
+        "180 * sy",
+        "L",
+        "391 * sx",
+        "160 * sy",
+        "L",
+        "418 * sx",
+        "146 * sy",
+        "L",
+        "447 * sx",
+        "137 * sy",
+        "L",
+        "477 * sx",
+        "134 * sy",
+        "Z",
+        "M",
+        "1079 * sx",
+        "164 * sy",
+        "L",
+        "1102 * sx",
+        "167 * sy",
+        "L",
+        "1124 * sx",
+        "173 * sy",
+        "L",
+        "1145 * sx",
+        "184 * sy",
+        "L",
+        "1163 * sx",
+        "199 * sy",
+        "L",
+        "1177 * sx",
+        "217 * sy",
+        "L",
+        "1188 * sx",
+        "237 * sy",
+        "L",
+        "1195 * sx",
+        "260 * sy",
+        "L",
+        "1197 * sx",
+        "283 * sy",
+        "L",
+        "1197 * sx",
+        "1877 * sy",
+        "L",
+        "1195 * sx",
+        "1900 * sy",
+        "L",
+        "1188 * sx",
+        "1923 * sy",
+        "L",
+        "1177 * sx",
+        "1943 * sy",
+        "L",
+        "1163 * sx",
+        "1961 * sy",
+        "L",
+        "1145 * sx",
+        "1976 * sy",
+        "L",
+        "1124 * sx",
+        "1987 * sy",
+        "L",
+        "1102 * sx",
+        "1993 * sy",
+        "L",
+        "1079 * sx",
+        "1996 * sy",
+        "L",
+        "471 * sx",
+        "1996 * sy",
+        "L",
+        "448 * sx",
+        "1993 * sy",
+        "L",
+        "426 * sx",
+        "1987 * sy",
+        "L",
+        "405 * sx",
+        "1976 * sy",
+        "L",
+        "387 * sx",
+        "1961 * sy",
+        "L",
+        "373 * sx",
+        "1943 * sy",
+        "L",
+        "362 * sx",
+        "1923 * sy",
+        "L",
+        "355 * sx",
+        "1900 * sy",
+        "L",
+        "353 * sx",
+        "1877 * sy",
+        "L",
+        "353 * sx",
+        "283 * sy",
+        "L",
+        "355 * sx",
+        "260 * sy",
+        "L",
+        "362 * sx",
+        "237 * sy",
+        "L",
+        "373 * sx",
+        "217 * sy",
+        "L",
+        "387 * sx",
+        "199 * sy",
+        "L",
+        "405 * sx",
+        "184 * sy",
+        "L",
+        "426 * sx",
+        "173 * sy",
+        "L",
+        "448 * sx",
+        "167 * sy",
+        "L",
+        "471 * sx",
+        "164 * sy",
+        "Z"
+      ]
+    },
+    {
+      "id": "i41",
+      "type": "path",
+      "fillColor": "#000000",
+      "data": [
+        "M",
+        "870 * sx",
+        "188 * sy",
+        "L",
+        "877 * sx",
+        "189 * sy",
+        "L",
+        "885 * sx",
+        "191 * sy",
+        "L",
+        "892 * sx",
+        "195 * sy",
+        "L",
+        "898 * sx",
+        "200 * sy",
+        "L",
+        "903 * sx",
+        "206 * sy",
+        "L",
+        "906 * sx",
+        "213 * sy",
+        "L",
+        "909 * sx",
+        "220 * sy",
+        "L",
+        "909 * sx",
+        "228 * sy",
+        "L",
+        "909 * sx",
+        "228 * sy",
+        "L",
+        "909 * sx",
+        "236 * sy",
+        "L",
+        "906 * sx",
+        "243 * sy",
+        "L",
+        "903 * sx",
+        "250 * sy",
+        "L",
+        "898 * sx",
+        "256 * sy",
+        "L",
+        "892 * sx",
+        "261 * sy",
+        "L",
+        "885 * sx",
+        "265 * sy",
+        "L",
+        "877 * sx",
+        "267 * sy",
+        "L",
+        "870 * sx",
+        "268 * sy",
+        "L",
+        "680 * sx",
+        "268 * sy",
+        "L",
+        "673 * sx",
+        "267 * sy",
+        "L",
+        "665 * sx",
+        "265 * sy",
+        "L",
+        "658 * sx",
+        "261 * sy",
+        "L",
+        "652 * sx",
+        "256 * sy",
+        "L",
+        "647 * sx",
+        "250 * sy",
+        "L",
+        "644 * sx",
+        "243 * sy",
+        "L",
+        "641 * sx",
+        "236 * sy",
+        "L",
+        "641 * sx",
+        "228 * sy",
+        "L",
+        "641 * sx",
+        "228 * sy",
+        "L",
+        "641 * sx",
+        "220 * sy",
+        "L",
+        "644 * sx",
+        "213 * sy",
+        "L",
+        "647 * sx",
+        "206 * sy",
+        "L",
+        "652 * sx",
+        "200 * sy",
+        "L",
+        "658 * sx",
+        "195 * sy",
+        "L",
+        "665 * sx",
+        "191 * sy",
+        "L",
+        "673 * sx",
+        "189 * sy",
+        "L",
+        "680 * sx",
+        "188 * sy",
+        "Z"
+      ]
+    },
+    {
+      "id": "i42",
+      "type": "path",
+      "fillColor": "#000000",
+      "data": [
+        "M",
+        "919 * sx",
+        "1968 * sy",
+        "L",
+        "920 * sx",
+        "1968 * sy",
+        "L",
+        "921 * sx",
+        "1968 * sy",
+        "L",
+        "922 * sx",
+        "1969 * sy",
+        "L",
+        "923 * sx",
+        "1969 * sy",
+        "L",
+        "923 * sx",
+        "1970 * sy",
+        "L",
+        "924 * sx",
+        "1971 * sy",
+        "L",
+        "924 * sx",
+        "1972 * sy",
+        "L",
+        "924 * sx",
+        "1973 * sy",
+        "L",
+        "924 * sx",
+        "1973 * sy",
+        "L",
+        "924 * sx",
+        "1974 * sy",
+        "L",
+        "924 * sx",
+        "1975 * sy",
+        "L",
+        "923 * sx",
+        "1976 * sy",
+        "L",
+        "923 * sx",
+        "1977 * sy",
+        "L",
+        "922 * sx",
+        "1978 * sy",
+        "L",
+        "921 * sx",
+        "1978 * sy",
+        "L",
+        "920 * sx",
+        "1978 * sy",
+        "L",
+        "919 * sx",
+        "1978 * sy",
+        "L",
+        "631 * sx",
+        "1978 * sy",
+        "L",
+        "630 * sx",
+        "1978 * sy",
+        "L",
+        "629 * sx",
+        "1978 * sy",
+        "L",
+        "628 * sx",
+        "1978 * sy",
+        "L",
+        "627 * sx",
+        "1977 * sy",
+        "L",
+        "627 * sx",
+        "1976 * sy",
+        "L",
+        "626 * sx",
+        "1975 * sy",
+        "L",
+        "626 * sx",
+        "1974 * sy",
+        "L",
+        "626 * sx",
+        "1973 * sy",
+        "L",
+        "626 * sx",
+        "1973 * sy",
+        "L",
+        "626 * sx",
+        "1972 * sy",
+        "L",
+        "626 * sx",
+        "1971 * sy",
+        "L",
+        "627 * sx",
+        "1970 * sy",
+        "L",
+        "627 * sx",
+        "1969 * sy",
+        "L",
+        "628 * sx",
+        "1969 * sy",
+        "L",
+        "629 * sx",
+        "1968 * sy",
+        "L",
+        "630 * sx",
+        "1968 * sy",
+        "L",
+        "631 * sx",
+        "1968 * sy",
+        "Z"
+      ]
+    },
+    {
+      "id": "i43",
+      "type": "path",
+      "fillColor": "#000000",
+      "data": [
+        "M",
+        "318 * sx",
+        "452 * sy",
+        "L",
+        "325 * sx",
+        "452 * sy",
+        "L",
+        "325 * sx",
+        "517 * sy",
+        "L",
+        "318 * sx",
+        "517 * sy",
+        "Z"
+      ]
+    },
+    {
+      "id": "i44",
+      "type": "path",
+      "fillColor": "#000000",
+      "data": [
+        "M",
+        "318 * sx",
+        "586 * sy",
+        "L",
+        "325 * sx",
+        "586 * sy",
+        "L",
+        "325 * sx",
+        "697 * sy",
+        "L",
+        "318 * sx",
+        "697 * sy",
+        "Z"
+      ]
+    },
+    {
+      "id": "i45",
+      "type": "path",
+      "fillColor": "#000000",
+      "data": [
+        "M",
+        "318 * sx",
+        "723 * sy",
+        "L",
+        "325 * sx",
+        "723 * sy",
+        "L",
+        "325 * sx",
+        "835 * sy",
+        "L",
+        "318 * sx",
+        "835 * sy",
+        "Z"
+      ]
+    },
+    {
+      "id": "i46",
+      "type": "path",
+      "fillColor": "#000000",
+      "data": [
+        "M",
+        "1225 * sx",
+        "624 * sy",
+        "L",
+        "1232 * sx",
+        "624 * sy",
+        "L",
+        "1232 * sx",
+        "809 * sy",
+        "L",
+        "1225 * sx",
+        "809 * sy",
+        "Z"
+      ]
+    },
+    {
+      "id": "i47",
+      "type": "path",
+      "strokeWidth": 1.3,
+      "data": [
+        "M",
+        "196 * sx",
+        "2030 * sy",
+        "L",
+        "196 * sx",
+        "880 * sy"
+      ]
+    },
+    {
+      "id": "i48",
+      "type": "path",
+      "strokeWidth": 1.3,
+      "data": [
+        "M",
+        "1330 * sx",
+        "1952 * sy",
+        "L",
+        "2790 * sx",
+        "1952 * sy"
+      ]
+    },
+    {
+      "id": "i49",
+      "type": "path",
+      "strokeWidth": 1.3,
+      "data": [
+        "M",
+        "1330 * sx",
+        "1874 * sy",
+        "L",
+        "2790 * sx",
+        "1874 * sy"
+      ]
+    },
+    {
+      "id": "i50",
+      "type": "path",
+      "strokeWidth": 1.3,
+      "data": [
+        "M",
+        "1330 * sx",
+        "1796 * sy",
+        "L",
+        "2790 * sx",
+        "1796 * sy"
+      ]
+    },
+    {
+      "id": "i51",
+      "type": "path",
+      "strokeWidth": 1.3,
+      "data": [
+        "M",
+        "1330 * sx",
+        "1718 * sy",
+        "L",
+        "2790 * sx",
+        "1718 * sy"
+      ]
+    },
+    {
+      "id": "i52",
+      "type": "path",
+      "strokeWidth": 1.3,
+      "data": [
+        "M",
+        "1330 * sx",
+        "1640 * sy",
+        "L",
+        "2790 * sx",
+        "1640 * sy"
+      ]
+    },
+    {
+      "id": "i53",
+      "type": "path",
+      "strokeWidth": 1.3,
+      "data": [
+        "M",
+        "1330 * sx",
+        "1562 * sy",
+        "L",
+        "2790 * sx",
+        "1562 * sy"
+      ]
+    },
+    {
+      "id": "i54",
+      "type": "path",
+      "strokeWidth": 1.3,
+      "data": [
+        "M",
+        "1330 * sx",
+        "1484 * sy",
+        "L",
+        "2790 * sx",
+        "1484 * sy"
+      ]
+    },
+    {
+      "id": "i55",
+      "type": "path",
+      "strokeWidth": 1.3,
+      "data": [
+        "M",
+        "1330 * sx",
+        "1406 * sy",
+        "L",
+        "2790 * sx",
+        "1406 * sy"
+      ]
+    },
+    {
+      "id": "i56",
+      "type": "path",
+      "strokeWidth": 1.3,
+      "data": [
+        "M",
+        "1330 * sx",
+        "1328 * sy",
+        "L",
+        "2790 * sx",
+        "1328 * sy"
+      ]
+    },
+    {
+      "id": "i57",
+      "type": "path",
+      "strokeWidth": 1.3,
+      "data": [
+        "M",
+        "1330 * sx",
+        "1250 * sy",
+        "L",
+        "2790 * sx",
+        "1250 * sy"
+      ]
+    },
+    {
+      "id": "i58",
+      "type": "path",
+      "strokeWidth": 1.3,
+      "data": [
+        "M",
+        "1330 * sx",
+        "1172 * sy",
+        "L",
+        "2790 * sx",
+        "1172 * sy"
+      ]
+    },
+    {
+      "id": "i59",
+      "type": "path",
+      "strokeWidth": 1.3,
+      "data": [
+        "M",
+        "1330 * sx",
+        "1094 * sy",
+        "L",
+        "2790 * sx",
+        "1094 * sy"
+      ]
+    },
+    {
+      "id": "i60",
+      "type": "path",
+      "strokeWidth": 1.3,
+      "data": [
+        "M",
+        "1330 * sx",
+        "1016 * sy",
+        "L",
+        "2790 * sx",
+        "1016 * sy"
+      ]
+    },
+    {
+      "id": "i61",
+      "type": "path",
+      "strokeWidth": 1.3,
+      "data": [
+        "M",
+        "1330 * sx",
+        "938 * sy",
+        "L",
+        "2790 * sx",
+        "938 * sy"
+      ]
+    },
+    {
+      "id": "i62",
+      "type": "path",
+      "strokeWidth": 1.3,
+      "data": [
+        "M",
+        "1330 * sx",
+        "860 * sy",
+        "L",
+        "2790 * sx",
+        "860 * sy"
+      ]
+    },
+    {
+      "id": "i63",
+      "type": "path",
+      "strokeWidth": 1.3,
+      "data": [
+        "M",
+        "1330 * sx",
+        "782 * sy",
+        "L",
+        "2790 * sx",
+        "782 * sy"
+      ]
+    },
+    {
+      "id": "i64",
+      "type": "path",
+      "strokeWidth": 1.3,
+      "data": [
+        "M",
+        "1330 * sx",
+        "704 * sy",
+        "L",
+        "2790 * sx",
+        "704 * sy"
+      ]
+    },
+    {
+      "id": "i65",
+      "type": "path",
+      "strokeWidth": 1.3,
+      "data": [
+        "M",
+        "1330 * sx",
+        "626 * sy",
+        "L",
+        "2790 * sx",
+        "626 * sy"
+      ]
+    },
+    {
+      "id": "i66",
+      "type": "path",
+      "strokeWidth": 1.3,
+      "data": [
+        "M",
+        "1330 * sx",
+        "548 * sy",
+        "L",
+        "2790 * sx",
+        "548 * sy"
+      ]
+    },
+    {
+      "id": "i67",
+      "type": "path",
+      "strokeWidth": 1.3,
+      "data": [
+        "M",
+        "1330 * sx",
+        "470 * sy",
+        "L",
+        "2790 * sx",
+        "470 * sy"
+      ]
+    },
+    {
+      "id": "i68",
+      "type": "path",
+      "strokeWidth": 1.3,
+      "data": [
+        "M",
+        "1330 * sx",
+        "392 * sy",
+        "L",
+        "2790 * sx",
+        "392 * sy"
+      ]
+    },
+    {
+      "id": "i69",
+      "type": "path",
+      "strokeWidth": 1.3,
+      "data": [
+        "M",
+        "1330 * sx",
+        "314 * sy",
+        "L",
+        "2790 * sx",
+        "314 * sy"
+      ]
+    },
+    {
+      "id": "i70",
+      "type": "path",
+      "strokeWidth": 1.3,
+      "data": [
+        "M",
+        "1330 * sx",
+        "236 * sy",
+        "L",
+        "2790 * sx",
+        "236 * sy"
+      ]
+    },
+    {
+      "id": "i71",
+      "type": "path",
+      "strokeWidth": 1.3,
+      "data": [
+        "M",
+        "1330 * sx",
+        "158 * sy",
+        "L",
+        "2790 * sx",
+        "158 * sy"
+      ]
+    }
+  ]
+}

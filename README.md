@@ -66,7 +66,10 @@ ssh root@10.11.99.1 'rm -rf /home/root/.local/share/remarkable/xochitl/uxtpl_* ;
 
 Picker names: `{1|2|4}UP [LS] [WIDE] [COL] [GRD] {iPhone|Android}` (e.g. `1UP COL iPhone`,
 `1UP LS COL GRD iPhone`, `4UP LS COL Android`). Each has a thumbnail. Works on both devices
-(one universal set; templates scale to the screen). Requires reMarkable software **3.17+**.
+and templates scale to the screen — you'll see the same 36 designs on either tablet.
+(Under the hood the set ships in two coordinate variants — one for the Paper Pro and a
+90°-rotated one for the rM2, which interprets the template canvas rotated; each device's
+picker shows only its own via `supportedScreens`.) Requires reMarkable software **3.17+**.
 
 ---
 
@@ -99,7 +102,7 @@ do, and pitfalls — e.g. curve commands blank a template).
 ## Repository layout
 
 ```
-templates/universal/   the 36 templates (108 files) + MANIFEST
+templates/universal/   36 designs × 2 device coordinate sets (216 files) + MANIFEST
 docs/                  install guides (Paper Pro, rM2) + Methods-format notes
 src/                   the generators (Python) + build/preview scripts
 preview/               images used by this README
