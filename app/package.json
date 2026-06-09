@@ -1,0 +1,23 @@
+{
+  "name": "remarkable-ux-templates",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Catalog picker + installer for reMarkable UX prototyping templates",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "tauri": "tauri"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2",
+    "typescript": "^5.6",
+    "vite": "^5.4"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^2",
+    "@tauri-apps/plugin-dialog": "^2",
+    "@tauri-apps/plugin-updater": "^2"
+  }
+}
