@@ -2,14 +2,13 @@ import "./style.css";
 import { loadCatalog, type Catalog, type Design } from "./catalog";
 import { renderTemplateSvg } from "./renderer";
 import { api, isTauri, type DeviceInfo } from "./tauri";
+import { cellKey, selectDesigns, selectedFiles } from "./selection";
 
 // ---- icons (inline, stroke = currentColor) ----
 const ICON: Record<string, string> = {
   templates: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>`,
   device: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="5" y="2.5" width="14" height="19" rx="2.5"/><line x1="9.5" y1="18.5" x2="14.5" y2="18.5"/></svg>`,
   backup: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3v11"/><path d="M8 10l4 4 4-4"/><path d="M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2"/></svg>`,
-  settings: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.6 1.6 0 00.3 1.8 2 2 0 11-2.8 2.8 1.6 1.6 0 00-2.7.7 1.6 1.6 0 01-3.2 0 1.6 1.6 0 00-2.7-.7 2 2 0 11-2.8-2.8 1.6 1.6 0 00.3-1.8 1.6 1.6 0 00-1.4-1 1.6 1.6 0 010-3.2 1.6 1.6 0 001.4-1 1.6 1.6 0 00-.3-1.8 2 2 0 112.8-2.8 1.6 1.6 0 001.8.3h.1a1.6 1.6 0 001-1.4 1.6 1.6 0 013.2 0 1.6 1.6 0 001 1.4 1.6 1.6 0 001.8-.3 2 2 0 112.8 2.8 1.6 1.6 0 00-.3 1.8v.1a1.6 1.6 0 001.4 1 1.6 1.6 0 010 3.2 1.6 1.6 0 00-1.4 1z"/></svg>`,
-  search: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>`,
   selectAll: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12l3 3 5-6"/></svg>`,
   clear: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="3"/></svg>`,
   install: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3v9"/><path d="M8.5 8.5L12 12l3.5-3.5"/><rect x="5" y="13" width="14" height="8" rx="2"/></svg>`,
@@ -19,8 +18,7 @@ const ICON: Record<string, string> = {
 let catalog: Catalog;
 const selectedCells = new Set<string>(); // "model|variant"
 const enabledLayouts = new Set<string>();
-let screen: "templates" | "device" | "backup" | "settings" = "templates";
-let query = "";
+let screen: "templates" | "device" | "backup" = "templates";
 
 // device/backup state
 let deviceIp = "10.11.99.1";
@@ -30,17 +28,8 @@ let deviceInfo: DeviceInfo | null = null;
 let installed: string[] | null = null;
 let mirror = true;
 
-const cellKey = (model: string, variant: string) => `${model}|${variant}`;
-
 function selectedDesigns(): Design[] {
-  return catalog.designs.filter(
-    (d) => selectedCells.has(cellKey(d.model, d.variant)) && enabledLayouts.has(d.layout),
-  );
-}
-function visibleDesigns(): Design[] {
-  const q = query.trim().toLowerCase();
-  const sel = selectedDesigns();
-  return q ? sel.filter((d) => d.visibleName.toLowerCase().includes(q)) : sel;
+  return selectDesigns(catalog.designs, selectedCells, enabledLayouts);
 }
 const thumbSvg = (d: Design) => renderTemplateSvg(d.template, { stroke: "#3a3a3a" });
 
@@ -50,7 +39,6 @@ const app = document.getElementById("app")!;
 function mountShell() {
   app.innerHTML = `
     <aside class="sidebar">
-      <div class="brand"><span class="brand-mark"></span><span class="brand-name">UX Templates</span></div>
       <nav class="nav"><button class="nav-item" data-screen="templates">${ICON.templates}<span>Templates</span></button></nav>
       <div class="nav-label">Tablet</div>
       <nav class="nav">
@@ -58,7 +46,6 @@ function mountShell() {
         <button class="nav-item" data-screen="backup">${ICON.backup}<span>Backup</span></button>
       </nav>
       <div class="sidebar-spacer"></div>
-      <nav class="nav"><button class="nav-item" data-screen="settings">${ICON.settings}<span>Settings</span></button></nav>
     </aside>
     <main class="content">
       <div class="toolbar">
@@ -68,7 +55,6 @@ function mountShell() {
           <span class="tool-sep"></span>
           <button class="tool primary" data-act="install">${ICON.install}<span>Install…</span></button>
         </div>
-        <label class="search">${ICON.search}<input type="search" placeholder="Search templates" /></label>
       </div>
       <div class="content-body" id="body"></div>
     </main>
@@ -77,10 +63,6 @@ function mountShell() {
   app.querySelectorAll<HTMLButtonElement>(".nav-item").forEach((b) =>
     b.addEventListener("click", () => go(b.dataset.screen as typeof screen)),
   );
-  app.querySelector<HTMLInputElement>(".search input")!.addEventListener("input", (e) => {
-    query = (e.target as HTMLInputElement).value;
-    renderBody();
-  });
   app.querySelectorAll<HTMLButtonElement>(".tool").forEach((b) =>
     b.addEventListener("click", () => {
       const act = b.dataset.act;
@@ -92,7 +74,13 @@ function mountShell() {
         selectedCells.clear();
         go("templates");
       } else if (act === "install") {
-        go("device"); // installing happens on the device screen
+        // installing happens on the Templates screen; needs a connection first
+        if (!deviceInfo?.reachable) {
+          go("device");
+          return;
+        }
+        const r = document.querySelector<HTMLElement>("#instresult");
+        runInstall((t) => r && (r.textContent = t));
       }
     }),
   );
@@ -111,22 +99,22 @@ function syncNav() {
   );
   const t = screen === "templates";
   app.querySelector<HTMLElement>(".toolbar-actions")!.style.visibility = t ? "visible" : "hidden";
-  app.querySelector<HTMLElement>(".search")!.style.visibility = t ? "visible" : "hidden";
 }
 
 // ---- body dispatch ----
 function renderBody() {
   const body = document.getElementById("body")!;
-  if (screen === "templates") renderTemplates(body);
-  else if (screen === "device") renderDevice(body);
+  if (screen === "device") renderDevice(body);
   else if (screen === "backup") renderBackup(body);
-  else body.innerHTML = settingsPlaceholder();
+  else renderTemplates(body);
 }
 
 // ---- templates screen ----
 function renderTemplates(body: HTMLElement) {
   const { models, variants, layouts } = catalog.axes;
   const sel = selectedDesigns();
+  const files = selectedFiles(sel);
+  const connected = !!deviceInfo?.reachable;
   body.innerHTML = `
     <div class="page-head"><h1>Templates</h1><div class="count-pill"><strong>${sel.length}</strong> selected</div></div>
     <div class="panel">
@@ -148,6 +136,21 @@ function renderTemplates(body: HTMLElement) {
         .join("")}</div>
     </div>
     <div class="grid" id="grid"></div>
+
+    <div class="panel install-panel">
+      <h3>Install to your reMarkable</h3>
+      <p class="muted">${
+        connected
+          ? `Connected${deviceInfo!.model ? ` to ${deviceInfo!.model}` : ""}. <strong>${sel.length}</strong> templates (${files.length} files) ready to install.`
+          : `Not connected yet. <a class="link" id="goDevice">Set up your reMarkable →</a> to install.`
+      }</p>
+      <label class="checkrow"><input id="mirror" type="checkbox" ${mirror ? "checked" : ""}/>
+        Mirror — remove templates on the tablet that aren't selected</label>
+      <div class="row">
+        <button class="btn primary" id="installNow" ${connected && sel.length ? "" : "disabled"}>Install ${sel.length} to tablet</button>
+        <span id="instresult" class="status"></span>
+      </div>
+    </div>
   `;
   body.querySelectorAll<HTMLButtonElement>("button.cell").forEach((btn) =>
     btn.addEventListener("click", () => {
@@ -169,7 +172,30 @@ function renderTemplates(body: HTMLElement) {
       renderBody();
     }),
   );
+  body.querySelector<HTMLInputElement>("#mirror")?.addEventListener(
+    "change",
+    (e) => (mirror = (e.target as HTMLInputElement).checked),
+  );
+  body.querySelector<HTMLElement>("#goDevice")?.addEventListener("click", () => go("device"));
+  body.querySelector<HTMLButtonElement>("#installNow")?.addEventListener("click", () => {
+    const r = body.querySelector<HTMLElement>("#instresult")!;
+    runInstall((t) => (r.textContent = t));
+  });
   renderGrid();
+}
+
+// shared install routine (used by the Templates screen + toolbar button)
+async function runInstall(onResult: (text: string) => void) {
+  const sel = selectedDesigns();
+  if (!sel.length) return;
+  onResult("Installing…");
+  try {
+    const rep = await api.applyInstall(sel.map((d) => d.id), deviceIp, devicePassword, mirror);
+    installed = await api.listInstalled(deviceIp, devicePassword).catch(() => installed);
+    onResult(`✓ Installed ${rep.installed} files${rep.removed ? `, removed ${rep.removed}` : ""}. Restarted the tablet UI.`);
+  } catch (e) {
+    onResult("✕ " + errText(e));
+  }
 }
 
 function toggleGroup(keys: string[]) {
@@ -180,13 +206,9 @@ function toggleGroup(keys: string[]) {
 
 function renderGrid() {
   const grid = document.getElementById("grid")!;
-  const designs = visibleDesigns();
-  if (!selectedDesigns().length) {
-    grid.innerHTML = `<div class="empty">Pick a device and a background above to see templates.</div>`;
-    return;
-  }
+  const designs = selectedDesigns();
   if (!designs.length) {
-    grid.innerHTML = `<div class="empty">No templates match “${query}”.</div>`;
+    grid.innerHTML = `<div class="empty">Pick a device and a background above to see templates.</div>`;
     return;
   }
   grid.innerHTML = designs
@@ -206,8 +228,6 @@ function renderGrid() {
 
 // ---- device screen ----
 function renderDevice(body: HTMLElement) {
-  const sel = selectedDesigns();
-  const files = sel.flatMap((d) => d.targets.flatMap((t) => t.files));
   const connected = !!deviceInfo?.reachable;
 
   body.innerHTML = `
@@ -215,9 +235,14 @@ function renderDevice(body: HTMLElement) {
     ${isTauri() ? "" : `<div class="banner">Device actions run in the desktop app. In this browser preview the tablet can't be reached.</div>`}
 
     <div class="panel form">
-      <div class="field"><label>Device address</label><input id="ip" value="${deviceIp}" placeholder="10.11.99.1" /></div>
-      <div class="field"><label>Password <span class="hint">(Settings → Help → About → GPLv3 Compliance)</span></label>
-        <input id="pw" type="password" value="${devicePassword}" placeholder="device password" /></div>
+      <div class="field"><label>Device address</label>
+        <input id="ip" value="${deviceIp}" placeholder="10.11.99.1" />
+        <span class="hint">USB cable → always <code>10.11.99.1</code>. Wi-Fi → use the IP shown under Settings → General → Help → About → Copyrights and licenses → “GPLv3 Compliance”.</span>
+      </div>
+      <div class="field"><label>Password</label>
+        <input id="pw" type="password" value="${devicePassword}" placeholder="device password" />
+        <span class="hint">Settings → General → Help → About → Copyrights and licenses → “GPLv3 Compliance”. It changes after every software update.</span>
+      </div>
       <label class="checkrow"><input id="remember" type="checkbox" ${remember ? "checked" : ""}/> Remember password (keychain)</label>
       <div class="row">
         <button class="btn primary" id="test">Test connection</button>
@@ -226,30 +251,52 @@ function renderDevice(body: HTMLElement) {
     </div>
 
     <div class="panel">
-      <h3>Install selection</h3>
-      <p class="muted">${sel.length} templates selected (${files.length} files).
-        <a class="link" id="gopick">Change selection</a></p>
-      <label class="checkrow"><input id="mirror" type="checkbox" ${mirror ? "checked" : ""}/>
-        Mirror — remove templates on the tablet that aren't selected</label>
-      <div class="row">
-        <button class="btn primary" id="install" ${connected && sel.length ? "" : "disabled"}>Install ${sel.length} to tablet</button>
-        <button class="btn ghost" id="refresh" ${connected ? "" : "disabled"}>Refresh installed</button>
-        <button class="btn danger" id="wipe" ${connected ? "" : "disabled"}>Uninstall all</button>
-        <span id="result" class="status"></span>
-      </div>
-      ${installed ? `<p class="muted small">${installed.length} template files currently on the tablet.</p>` : ""}
+      <h3>Installed templates</h3>
+      ${
+        connected
+          ? `<p class="muted">${
+              installed
+                ? `<strong>${installed.length}</strong> template files currently on the tablet.`
+                : "Checking what's installed…"
+            } Choose and install templates from the <a class="link" id="gopick">Templates</a> tab.</p>
+            <div class="row">
+              <button class="btn ghost" id="refresh">Refresh</button>
+              <button class="btn danger" id="wipe">Uninstall all</button>
+              <span id="result" class="status"></span>
+            </div>`
+          : `<p class="muted">Connect above to see what's installed, then pick templates on the
+              <a class="link" id="gopick">Templates</a> tab to install them.</p>`
+      }
     </div>
+
+    <details class="panel help">
+      <summary>Connecting: USB vs Wi-Fi</summary>
+      <p class="muted"><strong>USB (recommended).</strong> Plug in the cable and use <code>10.11.99.1</code>.
+        Works on both the reMarkable 2 and Paper Pro and needs no network setup.</p>
+      <p class="muted"><strong>Wi-Fi.</strong> Put the tablet and this computer on the same network, then use the
+        Wi-Fi IP listed under Settings → General → Help → About → Copyrights and licenses → “GPLv3 Compliance”.
+        SSH still has to be available — on the Paper Pro that means Developer Mode is on.</p>
+    </details>
+
+    <details class="panel help">
+      <summary>Paper Pro: turn on Developer Mode first</summary>
+      <p class="muted">The <strong>reMarkable Paper Pro</strong> only allows SSH access after you enable
+        <strong>Developer Mode</strong>, and <strong>enabling it erases the tablet</strong> — back up or
+        cloud-sync before you start. On the tablet: Settings → General → Software (Advanced) → Developer mode.
+        Full walkthrough: <code>docs/install-paper-pro.md</code>.</p>
+      <p class="muted">The <strong>reMarkable 2</strong> does <strong>not</strong> need Developer Mode — SSH
+        works out of the box.</p>
+    </details>
   `;
 
-  const $ = <T extends HTMLElement>(id: string) => body.querySelector<T>("#" + id)!;
-  $("ip").addEventListener("input", (e) => (deviceIp = (e.target as HTMLInputElement).value));
-  $("pw").addEventListener("input", (e) => (devicePassword = (e.target as HTMLInputElement).value));
-  $("remember").addEventListener("change", (e) => (remember = (e.target as HTMLInputElement).checked));
-  $("mirror").addEventListener("change", (e) => (mirror = (e.target as HTMLInputElement).checked));
-  $("gopick").addEventListener("click", () => go("templates"));
+  const $ = <T extends HTMLElement>(id: string) => body.querySelector<T>("#" + id);
+  $<HTMLInputElement>("ip")!.addEventListener("input", (e) => (deviceIp = (e.target as HTMLInputElement).value));
+  $<HTMLInputElement>("pw")!.addEventListener("input", (e) => (devicePassword = (e.target as HTMLInputElement).value));
+  $<HTMLInputElement>("remember")!.addEventListener("change", (e) => (remember = (e.target as HTMLInputElement).checked));
+  $("gopick")?.addEventListener("click", () => go("templates"));
 
-  $("test").addEventListener("click", async () => {
-    const s = $("status");
+  $("test")!.addEventListener("click", async () => {
+    const s = $("status")!;
     s.textContent = "Connecting…";
     try {
       deviceInfo = await api.testConnection(deviceIp, devicePassword);
@@ -262,25 +309,12 @@ function renderDevice(body: HTMLElement) {
     }
   });
 
-  $("install").addEventListener("click", async () => {
-    const r = $("result");
-    r.textContent = "Installing…";
-    try {
-      const rep = await api.applyInstall(sel.map((d) => d.id), deviceIp, devicePassword, mirror);
-      installed = await api.listInstalled(deviceIp, devicePassword).catch(() => installed);
-      r.textContent = `✓ Installed ${rep.installed} files${rep.removed ? `, removed ${rep.removed}` : ""}. Restarted the tablet UI.`;
-      renderResultOnly(body, r.textContent);
-    } catch (e) {
-      r.textContent = "✕ " + errText(e);
-    }
-  });
-
-  $("refresh").addEventListener("click", async () => {
+  $("refresh")?.addEventListener("click", async () => {
     installed = await api.listInstalled(deviceIp, devicePassword).catch(() => installed);
     renderBody();
   });
-  $("wipe").addEventListener("click", async () => {
-    const r = $("result");
+  $("wipe")?.addEventListener("click", async () => {
+    const r = $("result")!;
     r.textContent = "Removing…";
     try {
       await api.uninstallAll(deviceIp, devicePassword);
@@ -301,11 +335,6 @@ function renderDevice(body: HTMLElement) {
       }
     }).catch(() => {});
   }
-}
-
-function renderResultOnly(body: HTMLElement, text: string) {
-  const r = body.querySelector<HTMLElement>("#result");
-  if (r) r.textContent = text;
 }
 
 const statusLine = (d: DeviceInfo) =>
@@ -351,11 +380,6 @@ function renderBackup(body: HTMLElement) {
   });
 }
 
-function settingsPlaceholder(): string {
-  return `<div class="placeholder"><div class="ph-icon">${ICON.settings}</div>
-    <h2>Settings</h2><p>Connection defaults, sync mode, and update preferences will live here.</p></div>`;
-}
-
 function errText(e: unknown): string {
   return typeof e === "string" ? e : e instanceof Error ? e.message : String(e);
 }
@@ -377,7 +401,7 @@ loadCatalog()
       c.axes.models.forEach((m) => c.axes.variants.forEach((v) => selectedCells.add(cellKey(m.key, v.key))));
     }
     const s = new URLSearchParams(location.search).get("screen");
-    if (s === "device" || s === "backup" || s === "settings") screen = s;
+    if (s === "device" || s === "backup") screen = s;
     mountShell();
     renderBody();
   })
