@@ -1,0 +1,55 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "reMarkable UX Templates",
+  "version": "0.1.0",
+  "identifier": "com.martesdelta.rmuxtemplates",
+  "build": {
+    "frontendDist": "../dist",
+    "devUrl": "http://localhost:1420",
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build"
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "windows": [
+      {
+        "title": "reMarkable UX Templates",
+        "width": 1100,
+        "height": 760,
+        "minWidth": 880,
+        "minHeight": 600
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["dmg", "app"],
+    "category": "Productivity",
+    "resources": {
+      "../../catalog/catalog.json": "catalog.json",
+      "../../templates/universal": "templates"
+    },
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "createUpdaterArtifacts": true,
+    "macOS": {
+      "minimumSystemVersion": "10.15"
+    }
+  },
+  "plugins": {
+    "updater": {
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDJBMDQyNDZBOTQyQjQwRkMKUldUOFFDdVVhaVFFS2ljam5qUHBHY0F0YmpJbFdkNEp0T2lDUkVKbFlQWjR3S05aMU8raHZGUjQK",
+      "endpoints": [
+        "https://github.com/Martes-Delta-Co/Remarkable-Mobile-Prototyping-Templates/releases/latest/download/latest.json"
+      ]
+    }
+  }
+}
