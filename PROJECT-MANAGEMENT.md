@@ -4,6 +4,39 @@ Living list of what we want to add. The Tauri app and the catalog picker (§2.4 
 [docs/TAURI-APP-PLAN.md](docs/TAURI-APP-PLAN.md)) **hide** anything not yet in `catalog.json`,
 so each item below lights up its matrix cell automatically once the generators emit it.
 
+## Desktop app — verification & build tiers
+
+The app ships in **two tiers of functionality**:
+
+- **Core app** (catalog picker + renderer + the device/backup *screens*) builds and runs with
+  nothing special — `npm run tauri dev` / `npm run tauri build`.
+- **Tablet integration** (SSH install, USB backup, keychain) is gated behind a Cargo feature
+  and is **off by default**:
+
+  ```
+  npm run tauri build -- --features device
+  ```
+
+- [ ] **Verify the `device` path end-to-end on a physical reMarkable over USB.** Per the
+      [app README](app/README.md) status table it's *implemented but not yet verified* — the
+      default build shows the device/backup UI but can't actually talk to a tablet. Needs a
+      real device connected to confirm SSH install, USB-web backup, and keychain storage work.
+
+  Verification checklist (run on a connected device):
+
+  - [ ] **Build:** `npm run tauri build -- --features device` (macOS) compiles cleanly.
+  - [ ] **Connect:** Test connection over USB (`10.11.99.1`) returns the device model + software
+        version — not the "Device support is not compiled" error.
+  - [ ] **Keychain:** "Remember password" stores it; relaunching the app prefills it (macOS Keychain).
+  - [ ] **Install:** install a selection → files land in `xochitl/`, the tablet UI restarts, and the
+        templates show up under New page → Template.
+  - [ ] **Mirror on:** install with Mirror checked → `uxtpl_*` templates not in the selection are removed.
+  - [ ] **Mirror off:** install with Mirror unchecked → previously installed templates are left intact.
+  - [ ] **Installed list:** "Refresh" on My reMarkable reflects what's actually on the device.
+  - [ ] **Uninstall all:** removes only `uxtpl_*` files, leaving other templates untouched.
+  - [ ] **Backup:** pulls notebooks as `.rmdoc` over the USB web interface into the chosen folder.
+  - [ ] **Both devices:** repeat on the reMarkable 2 and the Paper Pro (Developer Mode on for the Pro).
+
 ## Want soon — new catalog content
 
 These are the rows/columns the picker matrix is designed around but doesn't ship yet.
